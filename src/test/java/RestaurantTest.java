@@ -70,4 +70,20 @@ class RestaurantTest {
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+    //>>>>>>>>>>>>>>>>>>>>>>>>>>>COST<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    @Test
+    public void when_no_items_are_selected_order_cost_should_be_0(){
+        List<String> selectedNames = new ArrayList<String>();
+        assertEquals(0,restaurant.orderTotal(selectedNames));
+    }
+
+    @Test
+    public void when_2_items_are_selected_the_total_cost_should_be_equal_to_the_sum_of_their_individual_cost(){
+        List<String> selectedNames = new ArrayList<String>();
+        selectedNames.add("Sweet corn soup");
+        selectedNames.add("Vegetable lasagne");
+        assertEquals(388,restaurant.orderTotal(selectedNames));
+    }
+    //<<<<<<<<<<<<<<<<<<<<<<<COST>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
 }
